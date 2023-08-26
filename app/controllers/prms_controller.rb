@@ -1,27 +1,23 @@
 class PrmsController < ApplicationController
   before_action :set_project, only: %i[ index new ]
   before_action :set_prm, only: %i[ show edit update destroy ]
-  # GET /prms or /prms.json
+
   def index
     @prms = @project.prms
   end
 
-  # GET /prms/1 or /prms/1.json
   def show
     @prmer = @prm.prmers.new
     @prmers = @prm.prmers
   end
 
-  # GET /prms/new
   def new
     @prm = Prm.new
   end
 
-  # GET /prms/1/edit
   def edit
   end
 
-  # POST /prms or /prms.json
   def create
     @prm = Prm.new(prm_params)
 
@@ -36,7 +32,6 @@ class PrmsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /prms/1 or /prms/1.json
   def update
     respond_to do |format|
       if @prm.update(prm_params)
@@ -49,7 +44,6 @@ class PrmsController < ApplicationController
     end
   end
 
-  # DELETE /prms/1 or /prms/1.json
   def destroy
     @prm.destroy
     @proj = @prm.project
@@ -64,13 +58,9 @@ class PrmsController < ApplicationController
     
     @project = Project.find(params[:project_id])
   end
-  
-    # Use callbacks to share common setup or constraints between actions.
     def set_prm
       @prm = Prm.find(params[:id])
     end
-
-    # Only allow a list of trusted parameters through.
     def prm_params
       params.require(:prm).permit(:name, :body, :project_id)
     end

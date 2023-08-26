@@ -2,25 +2,20 @@ class PrmersController < ApplicationController
   before_action :set_prm, only: %i[ new ]
   before_action :set_prmer, only: %i[ show edit update destroy ]
   
-  # GET /prmers or /prmers.json
   def index
     @prmers = Prmer.all
   end
 
-  # GET /prmers/1 or /prmers/1.json
   def show
   end
 
-  # GET /prmers/new
   def new
     @prmer = Prmer.new
   end
 
-  # GET /prmers/1/edit
   def edit
   end
 
-  # POST /prmers or /prmers.json
   def create
     @prmer = Prmer.new(prmer_params)
 
@@ -35,7 +30,6 @@ class PrmersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /prmers/1 or /prmers/1.json
   def update
     respond_to do |format|
       if @prmer.update(prmer_params)
@@ -48,7 +42,6 @@ class PrmersController < ApplicationController
     end
   end
 
-  # DELETE /prmers/1 or /prmers/1.json
   def destroy
     @prmer.destroy
 
@@ -62,12 +55,9 @@ class PrmersController < ApplicationController
   def set_prm
     @prm = Prm.find(params[:prm_id])
   end
-    # Use callbacks to share common setup or constraints between actions.
     def set_prmer
       @prmer = Prmer.find(params[:id])
     end
-
-    # Only allow a list of trusted parameters through.
     def prmer_params
       params.require(:prmer).permit(:name, :body, :prm_id)
     end

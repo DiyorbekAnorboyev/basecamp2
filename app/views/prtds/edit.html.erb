@@ -1,10 +1,6 @@
-<h1>Editing prtd</h1>
+<%= link_to "Back", prtd_path(@prtd), class: 'text-light btn btn-primary mt-3'%>
+<h1 class="text-center">Edit prtd</h1>
 
 <%= render "form", prtd: @prtd %>
+  
 
-<br>
-
-<div>
-  <%= link_to "Show this prtd", @prtd %> |
-  <%= link_to "Back to prtds", prtds_path %>
-</div>

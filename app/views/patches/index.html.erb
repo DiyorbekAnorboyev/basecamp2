@@ -1,55 +1,15 @@
-<html>
-    <head>
-      <style>
-      html {
-              height: 100%;
-            }
-      body {
-              margin: 0;
-              padding: 0;
-              font-family: sans-serif;
-              background: linear-gradient(#141e30, #243b55);
-              }
-     .container{
-  width: 400px;
-  margin-top:100px;
-  background: white;
-  border-radius: 10px;
-  padding:5px 10px; 
-   box-shadow: 10px 10px 5px lightblue;
-          border-radius: 10px;
- }          
-     </style>
-    </head>
-      <body>
+<%= link_to "Back to projects", project_path(@project), class: 'text-light btn btn-primary mt-3' %>
 
 <div class="container">
-  <div class="row justify-content-md-center"> 
-    <div class="col-md-auto">
-  <p style="color: green"><%= notice %></p>
-    <div class="card text-white mb-3" style="max-width: 18rem;">
-      <div class="card-header bg-dark"><h1>Attachments</h1></div>
-      <div class="card-body">
-       <div id="patches">
-          <% @patches.each do |patch| %>
+  <h1>Attachments</h1>
+  <%= link_to "New ", new_project_patch_path(@project), class: "btn btn-primary" %><br>
+  <div class="container mt-2">
+     <% @patches.each do |patch| %>
             <%= render patch %> 
             <p>
               <%= link_to "Show this patch", patch, class: "btn btn-primary" %>
             </p>
           <% end %>
-        </div>
+  </div>
+</div>
 
-        <%= link_to "New", new_project_patch_path(@project), class: "btn btn-primary" %> <br>
-        <%= link_to "Back", project_path(@project), class: "btn btn-warning my-2" %>
-    </div> 
-      
-        
-
-        
-
-    </div>    
-  </div>       
-</div> 
-
-   </body>  
-</html>

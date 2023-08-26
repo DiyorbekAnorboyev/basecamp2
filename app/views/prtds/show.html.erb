@@ -1,10 +1,12 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @prtd %>
-
-<div>
-  <%= link_to "Edit this prtd", edit_prtd_path(@prtd) %> |
-  <%= link_to "Back to prtds", prtds_path %>
-
-  <%= button_to "Destroy this prtd", @prtd, method: :delete %>
+<%= link_to "Back to projects", prtds_path, class:'btn btn-primary mt-3' %>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="projects">
+      <%= render @prtd %>
+      <div class=" w-50 mt-3 d-flex justify-content-between gap-1">
+        <%= link_to "Edit", edit_prtd_path(@prtd), class: "btn btn-primary my-2" %>
+        <%= button_to "Destroy", @prtd, method: :delete, class: "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
 </div>

@@ -3,13 +3,12 @@ Rails.application.routes.draw do
   resources :patches
   resources :prmers
   resources :prms do
-    resources :prmers
+  resources :prmers
   end
   resources :projects do
     resources :prms
     resources :prtds
     resources :patches
-  
   end
   devise_for :users
   root "projects#index"

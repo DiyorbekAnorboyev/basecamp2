@@ -1,37 +1,16 @@
 <%= form_with(model: project) do |form| %>
-  <% if project.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
-
-      <ul>
-        <% project.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name, class: "form-control" %>
-  </div>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description, class: "form-control" %>
-  </div>
-
-  <div>
-    <%= form.text_field :user_id, type: :hidden %>
-  </div>
-
-  <div>
-    <%= form.submit class: "btn btn-primary my-2" %>
-  </div>
+<div class="text-center mt-3">
+  <%= form.label :name, class:"fs-2" %><br>
+  <%= form.text_field :name, class:"w-25 border rounded-3 border-5 " %>
+</div>
+<div class="text-center mt-3">
+  <%= form.label :description, class:"fs-2"  %><br>
+  <%= form.text_area :description, class:"w-25 border rounded-3 border-5 " %><br>
+</div>
+<div>
+  <%= form.text_field :user_id, type: :hidden %>
+</div>
+<div class="text-center mt-3 ">
+  <%=  form.submit "New Project", class: "text-light btn btn-info w-25" %>
+</div>
 <% end %>
-
-<style>
-  .form-control{
-    width:400px;
-  }
-</style>
